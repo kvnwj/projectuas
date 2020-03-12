@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">SmartLeasing</string>
+    <string name="app_name">Smart Leasing</string>
+    <string name="empMenuOne">Customer List</string>
+    <string name="empMenuTwo">Menu 2</string>
+    <string name="empMenuThree">Menu 3</string>
+    <string name="empMode">Employee Mode</string>
 </resources>
