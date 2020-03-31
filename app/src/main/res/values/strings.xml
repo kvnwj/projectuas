@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Smart Leasing</string>
     <string name="empMenuOne">Customer List</string>
-    <string name="empMenuTwo">Menu 2</string>
-    <string name="empMenuThree">Menu 3</string>
+    <string name="empMenuTwo">My Profile</string>
     <string name="empMode">Employee Mode</string>
+
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+
+    <string name="hello_blank_fragment">Hello from the newly created blank fragment!</string>
 </resources>
