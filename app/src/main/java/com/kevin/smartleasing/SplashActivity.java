@@ -21,7 +21,7 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
 
         /* New Handler to start the LoginScreen
-         * and close this Splash-Screen after some seconds.*/
+         * and close this SplashScreen after some seconds.*/
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -1,28 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="8dp"
+    android:paddingTop="8dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="8dp"
     tools:context=".CustomerList">
 
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/txtCustomerList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="8dp"
+        android:layout_height="wrap_content"
+        android:text="Customer List"
+        style="@style/CustomerListTitleStyle" />
+
+    <TextView
+        android:id="@+id/txtNamaCustomer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:orientation="vertical">
+        android:text="Andi (Click Me)"
+        style="@style/CustomerListStyle" />
 
-        <TextView
-            android:id="@+id/txtCustomerList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Customer List"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+    <TextView
+        android:id="@+id/txtNamaCustomer2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Budi"
+        style="@style/CustomerListStyle" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
-</FrameLayout>
+    <TextView
+        android:id="@+id/txtNamaCustomer3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/CustomerListStyle"
+        android:text="Charlie" />
+
+    <TextView
+        android:id="@+id/txtNamaCustomer4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/CustomerListStyle"
+        android:text="Delta" />
+
+    <TextView
+        android:id="@+id/txtNamaCustomer5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/CustomerListStyle"
+        android:text="Echo" />
+
+</LinearLayout>

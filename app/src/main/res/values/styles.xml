@@ -14,4 +14,26 @@
         <item name="windowNoTitle">true</item>
         <!--<item name="android:windowFullscreen">true</item>-->
     </style>
+
+    <style name="CustomerListStyle">
+        <item name="android:background">@color/colorAccentLightOne</item>
+        <item name="android:paddingLeft">32dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="CustomerListTitleStyle">
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Display1</item>
+    </style>
+
+    <style name="generalButton">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorAccentLightTwo</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
 </resources>

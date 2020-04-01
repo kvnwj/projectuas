@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerifyCustomerIdentity"
+    android:orientation="vertical"
+    android:paddingLeft="8dp"
+    android:paddingTop="8dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:id="@+id/txtVerifikasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Verifikasi Identitas Pelanggan"
+        style="@style/CustomerListTitleStyle" />
+
+    <EditText
+        android:id="@+id/edtNamaDepan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="18sp"
+        android:hint="Nama Depan"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edtNamaBelakang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="18sp"
+        android:hint="Nama Belakang"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edtNIK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="18sp"
+        android:hint="Nomor Induk Kependudukan"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/edtAlamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="18sp"
+        android:hint="Alamat"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edtTempatLahir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="18sp"
+        android:hint="Tempat Lahir"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/txtTglLahir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tanggal Lahir"
+        android:layout_marginLeft="4dp"
+        android:textSize="18sp"
+        android:paddingTop="4dp" />
+
+    <Spinner
+        android:id="@+id/spinnerJK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:paddingTop="8dp" />
+
+    <Button
+        android:id="@+id/btnVerify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="VERIFY"
+        android:layout_marginTop="32dp"
+        style="@style/generalButton" />
+
+</LinearLayout>

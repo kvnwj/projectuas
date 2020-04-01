@@ -28,7 +28,7 @@
 
         <EditText
             android:id="@+id/username"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:ems="10"
@@ -37,7 +37,7 @@
 
         <EditText
             android:id="@+id/password"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
@@ -46,10 +46,11 @@
 
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="LOGIN" />
+            android:text="LOGIN"
+            style="@style/generalButton" />
 
         <TextView
             android:id="@+id/textView"
@@ -61,10 +62,13 @@
 
         <Button
             android:id="@+id/btnCreateAcc"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="BUAT AKUN BARU" />
+            android:text="BUAT AKUN BARU"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            style="@style/generalButton" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
