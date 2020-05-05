@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VerifyCustomerIdentity"
+    tools:context=".CreateNewAcc"
     android:orientation="vertical"
     android:paddingLeft="8dp"
     android:paddingTop="8dp"
@@ -12,14 +11,21 @@
     android:paddingBottom="8dp">
 
     <TextView
-        android:id="@+id/txtVerifikasi"
+        android:id="@+id/txtBuatBaru"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Verifikasi Identitas Pelanggan"
+        android:text="Buat Akun Baru"
         style="@style/CustomerListTitleStyle" />
 
+    <TextView
+        android:id="@+id/txtBuatBaru2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Silakan isi data diri Anda di bawah ini"
+        style="@style/CustomerListSubTitleStyle" />
+
     <EditText
-        android:id="@+id/edtNamaDepan"
+        android:id="@+id/edtNamaDepanBaru"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -28,7 +34,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/edtNamaBelakang"
+        android:id="@+id/edtNamaBelakangBaru"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -37,7 +43,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/edtNIK"
+        android:id="@+id/edtNIKBaru"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -46,7 +52,7 @@
         android:inputType="number" />
 
     <EditText
-        android:id="@+id/edtAlamat"
+        android:id="@+id/edtAlamatBaru"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -55,7 +61,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/edtTempatLahir"
+        android:id="@+id/edtTempatLahirBaru"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -64,7 +70,7 @@
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/txtTglLahir"
+        android:id="@+id/txtTglLahirBaru"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tanggal Lahir"
@@ -73,7 +79,7 @@
         android:paddingTop="4dp" />
 
     <Spinner
-        android:id="@+id/spinnerJK"
+        android:id="@+id/spinnerJKBaru"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
@@ -84,22 +90,22 @@
         android:layout_height="wrap_content"
         android:paddingTop="16dp">
 
-        <Button
-            android:id="@+id/btnBack"
-            style="@style/generalButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="BACK"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <!--        <Button-->
+        <!--            android:id="@+id/btnBackBaru"-->
+        <!--            style="@style/generalButton"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="BACK"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <Button
-            android:id="@+id/btnVerify"
+            android:id="@+id/btnCreateAccBaru"
             style="@style/generalButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="VERIFY"
+            android:text="CREATE ACCOUNT"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

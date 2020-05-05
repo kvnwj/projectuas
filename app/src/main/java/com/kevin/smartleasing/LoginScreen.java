@@ -34,6 +34,17 @@ public class LoginScreen extends AppCompatActivity {
             }
         });
 
+//        Code untuk tombol Buat Akun Baru
+        Button btnCreateNewAcc = findViewById(R.id.btnCreateAcc);
+        btnCreateNewAcc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Membuat Intent untuk membuka activity
+                Intent i = new Intent(getApplicationContext(), CreateNewAcc.class);
+                startActivity(i);
+            }
+        });
+
 //        Set background status bar to match logo color
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = this.getWindow();

@@ -1,17 +1,15 @@
 package com.kevin.smartleasing;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.RequiresApi;
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -22,15 +20,7 @@ import android.widget.Toast;
 
 import java.util.Objects;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
-public class VerifyCustomerIdentity extends Fragment {
-
-    public VerifyCustomerIdentity() {
-        // Required empty public constructor
-    }
+public class CreateNewAcc extends AppCompatActivity {
 
     private Spinner spinnerGender;
     private String[] gender = {"-Jenis Kelamin-", "Laki-laki", "Perempuan"};
@@ -39,16 +29,16 @@ public class VerifyCustomerIdentity extends Fragment {
     private TextView txtTglLahir;
     private int year, month, day;
 
-    private Button btnVerify;
-    private Button btnBack;
+    //    private Button btnBack;
+    private Button btnCreateNewAcc;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_verify_customer_identity, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_create_new_acc);
+
 //        Coding untuk spinner gender
-        spinnerGender = v.findViewById(R.id.spinnerJK);
+        spinnerGender = findViewById(R.id.spinnerJKBaru);
         spinnerGender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -61,17 +51,17 @@ public class VerifyCustomerIdentity extends Fragment {
 
             }
         });
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(Objects.requireNonNull(getContext()), android.R.layout.simple_spinner_item, gender);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(CreateNewAcc.this, android.R.layout.simple_spinner_item, gender);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerGender.setAdapter(adapter);
 
 //        Coding untuk date picker tanggal lahir
-        txtTglLahir = v.findViewById(R.id.txtTglLahir);
+        txtTglLahir = findViewById(R.id.txtTglLahirBaru);
         txtTglLahir.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(Objects.requireNonNull(getContext()));
+                DatePickerDialog datePickerDialog = new DatePickerDialog(CreateNewAcc.this);
                 datePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -82,22 +72,32 @@ public class VerifyCustomerIdentity extends Fragment {
             }
         });
 
-//        Coding untuk tombol Verify
-        btnVerify = v.findViewById(R.id.btnVerify);
-        btnVerify.setOnClickListener(new View.OnClickListener() {
+//        Coding untuk tombol Back
+//        btnBack = findViewById(R.id.btnBackBaru);
+//        btnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+
+//        Coding untuk tombol Create New Account
+        btnCreateNewAcc = findViewById(R.id.btnCreateAccBaru);
+        btnCreateNewAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                Buat sebuah alert dialog baru
-                AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
+                AlertDialog.Builder dialog = new AlertDialog.Builder(CreateNewAcc.this);
                 dialog.setTitle("Konfirmasi");
-                dialog.setMessage("Apakah Anda yakin data yang dimasukkan benar?");
-                dialog.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                dialog.setMessage("Apakah Anda yakin data untuk akun baru Anda sudah benar?");
+                dialog.setPositiveButton("Ya, Buat Akun Sekarang", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-//                        Saat ya di klik
-                        Toast.makeText(getContext(), "Terima Kasih, Permintaan Anda Sedang Diproses", Toast.LENGTH_LONG).show();
-//                        Kembali ke Fragment CustomerList
-                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CustomerList()).commit();
+//                        Saat ya di klik, koding untuk masukkan data akun ke database
+                        Toast.makeText(CreateNewAcc.this, "Terima Kasih, Silakan Login dengan Akun Baru Anda.", Toast.LENGTH_LONG).show();
+//                        Setelah selesai lalu kembali ke Halaman Login Screen
+                        Intent i = new Intent(CreateNewAcc.this, LoginScreen.class);
+                        startActivity(i);
                     }
                 });
                 dialog.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -110,20 +110,6 @@ public class VerifyCustomerIdentity extends Fragment {
             }
         });
 
-//        Code untuk tombol Back
-        btnBack = v.findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Kembali tampilkan Customer List
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CustomerList()).commit();
-//                Pop Back Stack
-                getActivity().getSupportFragmentManager().popBackStack();
-            }
-        });
-
-//        Return view seperti yang seharusnya
-        return v;
     }
 
     private void showDate(int year, int month, int day) {

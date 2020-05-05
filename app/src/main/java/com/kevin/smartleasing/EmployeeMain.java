@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
@@ -12,6 +13,7 @@ import com.google.android.material.navigation.NavigationView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
 
 public class EmployeeMain extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -42,10 +44,15 @@ public class EmployeeMain extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
+        FragmentManager fm = getSupportFragmentManager();
 //        Bila back ditekan maka tutup dulu navigation drawer bila terbuka
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (fm.getBackStackEntryCount() > 0) {
+            Log.i("EmployeeMain", "Popping Backstack");
+            fm.popBackStack();
         } else {
+            Log.i("EmployeeMain", "Nothing on backstack, calling super");
             super.onBackPressed();
         }
     }
