@@ -8,4 +8,7 @@
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
 
     <string name="hello_blank_fragment">Hello from the newly created blank fragment!</string>
+    <string name="custMenuOne">Credit List</string>
+    <string name="custMenuTwo">My Profile</string>
+    <string name="custMode">Customer Mode</string>
 </resources>

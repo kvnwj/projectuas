@@ -1,11 +1,6 @@
 package com.kevin.smartleasing;
 
-import android.content.Context;
 import android.content.Intent;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +10,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 public class LoginScreen extends AppCompatActivity {
 
     @Override
@@ -23,18 +21,28 @@ public class LoginScreen extends AppCompatActivity {
         setContentView(R.layout.activity_login_screen);
 
         Button btnLogin = findViewById(R.id.btnLogin);
+        final EditText edtUserName = findViewById(R.id.username);
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Membuat Intent untuk membuka activity
-                EditText username = findViewById(R.id.username);
-                Log.i("infoku", username.getText().toString());
-                Intent i = new Intent(getApplicationContext(), EmployeeMain.class);
-                startActivity(i);
+                String userName = edtUserName.getText().toString();
+//                Program sementara untuk login ke Employee/Customer
+                if (userName.equals("EMPLOYEE")) {
+//                Membuat Intent untuk membuka activity employee
+                    Log.i("LoginScreen", "Username: " + userName + " Accessing EmployeeMain");
+                    Intent i = new Intent(LoginScreen.this, EmployeeMain.class);
+                    startActivity(i);
+                } else {
+//                    Membuat Intent untuk membuka activity Customer
+                    Log.i("LoginScreen", "Username: " + userName + " Accessing CustomerMain");
+                    Intent i = new Intent(LoginScreen.this, CustomerMain.class);
+                    startActivity(i);
+                }
             }
         });
 
-//        Code untuk tombol Buat Akun Baru
+        //        Code untuk tombol Buat Akun Baru
         Button btnCreateNewAcc = findViewById(R.id.btnCreateAcc);
         btnCreateNewAcc.setOnClickListener(new View.OnClickListener() {
             @Override

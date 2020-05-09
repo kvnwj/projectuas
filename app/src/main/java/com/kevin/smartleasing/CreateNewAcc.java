@@ -1,8 +1,5 @@
 package com.kevin.smartleasing;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
@@ -18,7 +15,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Objects;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class CreateNewAcc extends AppCompatActivity {
 
@@ -28,7 +26,7 @@ public class CreateNewAcc extends AppCompatActivity {
 
     private TextView txtTglLahir;
     private int year, month, day;
-
+    //
     //    private Button btnBack;
     private Button btnCreateNewAcc;
 

@@ -10,20 +10,16 @@ import java.util.Objects;
 
 import androidx.fragment.app.Fragment;
 
+public class EmpCustomerList extends Fragment {
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class CustomerList extends Fragment {
-
-    public CustomerList() {
+    public EmpCustomerList() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_customer_list, container, false);
+        View v = inflater.inflate(R.layout.fragment_emp_customer_list, container, false);
 //        Program saat cust1 diklik
         TextView cust1 = v.findViewById(R.id.txtNamaCustomer);
         cust1.setOnClickListener(new View.OnClickListener() {

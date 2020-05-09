@@ -9,7 +9,10 @@
         android:roundIcon="@drawable/logo_small"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CreateNewAcc"></activity>
+        <activity
+            android:name=".CustomerMain"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".CreateNewAcc" />
         <activity
             android:name=".EmployeeMain"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -23,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

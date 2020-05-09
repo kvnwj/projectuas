@@ -5,10 +5,6 @@ import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.RequiresApi;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Objects;
+
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
 
 
 /**
@@ -96,8 +95,8 @@ public class VerifyCustomerIdentity extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
 //                        Saat ya di klik
                         Toast.makeText(getContext(), "Terima Kasih, Permintaan Anda Sedang Diproses", Toast.LENGTH_LONG).show();
-//                        Kembali ke Fragment CustomerList
-                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CustomerList()).commit();
+//                        Kembali ke Fragment EmpCustomerList
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new EmpCustomerList()).commit();
                     }
                 });
                 dialog.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
@@ -116,7 +115,7 @@ public class VerifyCustomerIdentity extends Fragment {
             @Override
             public void onClick(View v) {
 //                Kembali tampilkan Customer List
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CustomerList()).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new EmpCustomerList()).commit();
 //                Pop Back Stack
                 getActivity().getSupportFragmentManager().popBackStack();
             }

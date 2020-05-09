@@ -14,14 +14,14 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
-public class EmployeeMain extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class CustomerMain extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_employee_main);
+        setContentView(R.layout.activity_customer_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -34,11 +34,12 @@ public class EmployeeMain extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-//        Tampilkan fragment Customer List saat pertama kali
+//        Tampilkan fragment Credit List saat pertama kali
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new EmpCustomerList()).commit();
-            navigationView.setCheckedItem(R.id.nav_customer_list);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CustCreditList()).commit();
+            navigationView.setCheckedItem(R.id.nav_credit_list);
         }
+
     }
 
     @Override
@@ -48,27 +49,28 @@ public class EmployeeMain extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else if (fm.getBackStackEntryCount() > 0) {
-            Log.i("EmployeeMain", "Popping Backstack");
+            Log.i("CustomerMain", "Popping Backstack");
             fm.popBackStack();
         } else {
-            Log.i("EmployeeMain", "Nothing on backstack, calling super");
+            Log.i("CustomerMain", "Nothing on backstack, calling super");
             super.onBackPressed();
         }
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-//        Program untuk Navigation View, logika klik
+//        Program untuk Navigation View
         switch (menuItem.getItemId()) {
-            case R.id.nav_customer_list:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new EmpCustomerList()).commit();
+            case R.id.nav_credit_list:
+//                Buka fragment customer credit list berdasarkan customer tersebut
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CustCreditList()).commit();
                 break;
-            case R.id.nav_profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new EmployeeProfile()).commit();
+            case R.id.nav_cust_profile:
+//                Buka fragment customer profile
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CustomerProfile()).commit();
                 break;
         }
 
-//        Tutup Drawer setelah klik
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

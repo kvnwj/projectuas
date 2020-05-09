@@ -8,8 +8,7 @@
     android:paddingTop="8dp"
     android:paddingRight="8dp"
     android:paddingBottom="8dp"
-    tools:context=".CustomerList">
-
+    tools:context=".EmpCustomerList">
 
     <TextView
         android:id="@+id/txtCustomerList"
