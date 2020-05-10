@@ -28,7 +28,7 @@ public class LoginScreen extends AppCompatActivity {
             public void onClick(View v) {
                 String userName = edtUserName.getText().toString();
 //                Program sementara untuk login ke Employee/Customer
-                if (userName.equals("EMPLOYEE")) {
+                if (userName.equals("emp")) {
 //                Membuat Intent untuk membuka activity employee
                     Log.i("LoginScreen", "Username: " + userName + " Accessing EmployeeMain");
                     Intent i = new Intent(LoginScreen.this, EmployeeMain.class);

@@ -50,7 +50,7 @@
             android:layout_toRightOf="@id/txtBunga"
             android:checked="false"
             android:gravity="left|center_vertical"
-            android:text="<Percentage>%"
+            android:text="Percentage%"
             android:textAppearance="?android:attr/textAppearanceSmall" />
     </RelativeLayout>
 
@@ -81,7 +81,7 @@
             android:layout_toRightOf="@id/txtAngsuran"
             android:checked="false"
             android:gravity="left|center_vertical"
-            android:text="Rp <Jumlah>"
+            android:text="Rp Jumlah"
             android:textAppearance="?android:attr/textAppearanceSmall" />
     </RelativeLayout>
 

@@ -28,7 +28,7 @@
 
         <TextView
             android:id="@+id/txtNama"
-            android:text="<Nama Produk>"
+            android:text="Nama Produk"
             android:textSize="20sp"
             android:layout_marginTop="8dp"
             android:maxLines="1"
@@ -42,7 +42,7 @@
 
         <TextView
             android:id="@+id/txtHarga"
-            android:text="<Harga> per bulan"
+            android:text="Harga per bulan"
             android:textSize="14sp"
             android:maxLines="1"
             android:layout_width="match_parent"

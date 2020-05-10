@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="contoh_nama">
+        <item>Andi</item>
+        <item>Budi</item>
+        <item>Charlie</item>
+        <item>Delta</item>
+        <item>Echo</item>
+    </string-array>
+
+    <string-array name="contoh_deskripsi">
+        <item>Suzuki Ertiga</item>
+        <item>Nissan Leaf</item>
+        <item>VW Golf</item>
+        <item>Tesla Model X</item>
+        <item>Polestar Precept</item>
+    </string-array>
+</resources>
