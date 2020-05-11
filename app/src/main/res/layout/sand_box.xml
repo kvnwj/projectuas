@@ -1,62 +1,102 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CreateNewAcc"
-    android:orientation="vertical"
-    android:paddingLeft="8dp"
-    android:paddingTop="8dp"
-    android:paddingRight="8dp"
-    android:paddingBottom="8dp">
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/txtCreditList"
+        android:text="Verifikasi Customer Identity:"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Credit List"
-        style="@style/CustomerListTitleStyle" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView"
+        android:textSize="25sp"
+        android:textStyle="normal|bold" />
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp">
-
-        <ImageView
-            android:id="@+id/appIconIV"
-            android:layout_width="60dp"
-            android:layout_height="60dp" />
-
-        <TextView
-            android:id="@+id/txtNama"
-            android:text="Nama Produk"
-            android:textSize="20sp"
-            android:layout_marginTop="8dp"
-            android:maxLines="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/appIconIV"
-            android:layout_toEndOf="@+id/appIconIV"
-            android:layout_marginLeft="12dp"
-            android:layout_marginStart="12dp" />
-
-        <TextView
-            android:id="@+id/txtHarga"
-            android:text="Harga per bulan"
-            android:textSize="14sp"
-            android:maxLines="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtNama"
-            android:layout_alignLeft="@+id/txtNama"
-            android:layout_alignStart="@+id/txtNama" />
-
-    </RelativeLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp">
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/namadepan"
+        android:hint="Nama Depan"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</LinearLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/namabelakang"
+        android:hint="Nama Belakang"
+        android:layout_below="@+id/namadepan"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/alamat"
+        android:hint="Alamat"
+        android:layout_below="@+id/namabelakang"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/tanggallahir"
+        android:hint="Tanggal Lahir"
+        android:layout_below="@+id/alamat"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/tempatlahir"
+        android:hint="Tempat Lahir"
+        android:layout_below="@+id/tanggallahir"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/jeniskelamin"
+        android:hint="Jenis Kelamin"
+        android:layout_below="@+id/tempatlahir"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/NIK"
+        android:hint="NIK"
+        android:layout_below="@+id/jeniskelamin"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="NEXT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/NIK"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btnLogin" />
+
+</RelativeLayout>

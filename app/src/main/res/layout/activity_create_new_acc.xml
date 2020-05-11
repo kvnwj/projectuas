@@ -61,6 +61,15 @@
         android:inputType="textPersonName" />
 
     <EditText
+        android:id="@+id/edtNoTelpBaru"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="18sp"
+        android:hint="Nomor Telepon"
+        android:inputType="phone" />
+
+    <EditText
         android:id="@+id/edtTempatLahirBaru"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -84,6 +93,33 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:paddingTop="16dp" />
+
+    <EditText
+        android:id="@+id/edtUsernameBaru"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="18sp"
+        android:hint="Username Anda"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edtPasswordBaru"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="18sp"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/edtPasswordBaru2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="18sp"
+        android:hint="Konfirmasi Password"
+        android:inputType="textPassword" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

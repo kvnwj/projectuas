@@ -1,5 +1,6 @@
 package com.kevin.smartleasing;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -31,8 +33,7 @@ public class EmployeeMain extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout drawer;
 
-    ArrayList<String> nama, deskripsi;
-    //    ArrayList<HashMap<String, String>> list_customer;
+    ArrayList<String> nama, deskripsi, ID_transaksi;
     String url_get_customer = "http://kev.inkomtek.co.id/umn/android/getCustomer.php";
 
     //    Tag untuk tabel transaksi
@@ -40,24 +41,31 @@ public class EmployeeMain extends AppCompatActivity implements NavigationView.On
     private static final String TAG_nama_produk = "nama_produk";
     private static final String TAG_nama_depan = "nama_depan";
     private static final String TAG_nama_belakang = "nama_belakang";
+    private static final String TAG_ID_transaksi = "ID_transaksi";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_main);
 
+//        Instantiate variables
+        nama = new ArrayList<>();
+        deskripsi = new ArrayList<>();
+        ID_transaksi = new ArrayList<>();
+
+//        Code untuk toolbar, drawer, toggle
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        final NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        //        Ambil data dari API getCustomer.php menggunakan VOLLEY
+//        Ambil data dari API getCustomer.php menggunakan VOLLEY
         RequestQueue queue = Volley.newRequestQueue(EmployeeMain.this);
         queue.start();
 //        Buat StringRequest Baru
@@ -74,19 +82,21 @@ public class EmployeeMain extends AppCompatActivity implements NavigationView.On
                                 JSONObject obj = data.getJSONObject(i);
                                 String namaDepan = obj.getString(TAG_nama_depan);
                                 String namaBelakang = obj.getString(TAG_nama_belakang);
-                                String namaLengkap = namaDepan + namaBelakang;
+                                String namaLengkap = namaDepan + " " + namaBelakang;
+                                String namaProduk = obj.getString(TAG_nama_produk);
+                                String idTransaksi = obj.getString(TAG_ID_transaksi);
 
                                 nama.add(namaLengkap);
-                                deskripsi.add(obj.getString(TAG_nama_produk));
-
-//                                HashMap<String, String> map = new HashMap<>();
-//                                map.put(TAG_nama_produk, obj.getString(TAG_nama_produk));
-//                                map.put(TAG_nama_lengkap, namaLengkap);
-
-//                                Menambahkan data yang diambil ke list_customer
-//                                list_customer.add(map);
+                                deskripsi.add(namaProduk);
+                                ID_transaksi.add(idTransaksi);
                             }
                             Log.i("EmployeeMain", "Get Data OK");
+
+//                            Tampilkan fragment Customer List saat pertama kali menggunakan data dari Volley
+//                            Fragment ditampilkan setelah Volley sudah mendapatkan Response dan data sudah OK
+                            if (savedInstanceState == null) {
+                                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new EmpCustomerList()).commit();
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -101,14 +111,16 @@ public class EmployeeMain extends AppCompatActivity implements NavigationView.On
         });
 //        Menambahkan stringRequest ke requestQueue agar diproses
         queue.add(stringRequest);
-        Log.i("EmployeeMain", "Array nama: " + nama.toString());
-        Log.i("EmployeeMain", "Array deskripsi: " + deskripsi.toString());
+        navigationView.setCheckedItem(R.id.nav_customer_list);
+    }
 
-//        Tampilkan fragment Customer List saat pertama kali
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new EmpCustomerList()).commit();
-            navigationView.setCheckedItem(R.id.nav_customer_list);
-        }
+    //    Fungsi yang dipanggil fragment untuk mendapatkan data
+    public ArrayList<ArrayList<String>> getDataCustomer() {
+        ArrayList<ArrayList<String>> data = new ArrayList<>();
+        data.add(0, nama);
+        data.add(1, deskripsi);
+        data.add(2, ID_transaksi);
+        return data;
     }
 
     @Override
@@ -117,12 +129,27 @@ public class EmployeeMain extends AppCompatActivity implements NavigationView.On
 //        Bila back ditekan maka tutup dulu navigation drawer bila terbuka
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+//            Bila ada BackStack
         } else if (fm.getBackStackEntryCount() > 0) {
             Log.i("EmployeeMain", "Popping Backstack");
             fm.popBackStack();
         } else {
-            Log.i("EmployeeMain", "Nothing on backstack, calling super");
-            super.onBackPressed();
+            AlertDialog.Builder dialog = new AlertDialog.Builder(EmployeeMain.this);
+            dialog.setTitle("Konfirmasi");
+            dialog.setMessage("Apakah Anda yakin mau keluar?");
+            dialog.setPositiveButton("YA", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Log.i("EmployeeMain", "Nothing on backstack, calling super");
+                    EmployeeMain.super.onBackPressed();
+                }
+            });
+            dialog.setNegativeButton("TIDAK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+            dialog.show();
         }
     }
 
@@ -137,8 +164,7 @@ public class EmployeeMain extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new EmployeeProfile()).commit();
                 break;
         }
-
-//        Tutup Drawer setelah klik
+//        Tutup Drawer setelah user memilih NavigationItem
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
