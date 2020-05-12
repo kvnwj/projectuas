@@ -15,6 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Buat Akun Baru"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textStyle="bold"
         style="@style/CustomerListTitleStyle" />
 
     <TextView
@@ -22,6 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Silakan isi data diri Anda di bawah ini"
+        android:textSize="20sp"
+        android:textStyle="bold"
         style="@style/CustomerListSubTitleStyle" />
 
     <EditText
@@ -126,22 +132,16 @@
         android:layout_height="wrap_content"
         android:paddingTop="16dp">
 
-        <!--        <Button-->
-        <!--            android:id="@+id/btnBackBaru"-->
-        <!--            style="@style/generalButton"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="BACK"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent" />-->
-
         <Button
             android:id="@+id/btnCreateAccBaru"
             style="@style/generalButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:gravity="center"
             android:text="CREATE ACCOUNT"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

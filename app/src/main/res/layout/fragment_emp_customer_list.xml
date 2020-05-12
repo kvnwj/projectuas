@@ -3,16 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".CreateNewAcc"
     android:orientation="vertical"
-    tools:context=".EmpCustomerList">
+    android:paddingLeft="8dp"
+    android:paddingTop="8dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="8dp">
 
     <TextView
+        android:id="@+id/txtBuatBaru"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/CustomerListTitleStyle"
         android:text="Customer List"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp" />
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textStyle="bold"
+        style="@style/CustomerListTitleStyle" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

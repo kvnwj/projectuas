@@ -50,6 +50,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="LOGIN"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:textStyle="bold"
             style="@style/generalButton" />
 
         <TextView
@@ -66,6 +69,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="BUAT AKUN BARU"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:textStyle="bold"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             style="@style/generalButton" />

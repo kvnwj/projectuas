@@ -15,6 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Formulir Pengajuan"
+        android:background="#5EC639"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
         style="@style/CustomerListTitleStyle" />
 
     <TextView
@@ -22,7 +26,9 @@
         style="@style/CustomerListSubTitleStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Silakan isi formulir di bawah ini" />
+        android:text="Silakan isi formulir di bawah ini"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txtNamaProduk"
@@ -87,8 +93,12 @@
             style="@style/generalButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#5EC639 "
+            android:background="#5EC639"
             android:text="SUBMIT"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#ffffff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

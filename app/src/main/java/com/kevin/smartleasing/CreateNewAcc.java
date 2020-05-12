@@ -158,20 +158,6 @@ public class CreateNewAcc extends AppCompatActivity {
 //        Melakukan Post Request ke Server menggunakan VOLLEY
         RequestQueue queue = Volley.newRequestQueue(CreateNewAcc.this);
         queue.start();
-//        === Code from Stack Overflow ===
-//        Buat jsonBody untuk menyimpan semua data akun baru customer
-//        JSONObject jsonBody = new JSONObject();
-//        jsonBody.put(TAG_username, username);
-//        jsonBody.put(TAG_alamat, alamat);
-//        jsonBody.put(TAG_password, password);
-//        jsonBody.put(TAG_nama_depan, nama_depan);
-//        jsonBody.put(TAG_nama_belakang, nama_belakang);
-//        jsonBody.put(TAG_jenis_kelamin, jenis_kelamin);
-//        jsonBody.put(TAG_nik, nik);
-//        jsonBody.put(TAG_tempat_lahir, tempat_lahir);
-//        jsonBody.put(TAG_tanggal_lahir, tanggal_lahir);
-//        jsonBody.put(TAG_no_telp, no_telp);
-//        final String requestBody = jsonBody.toString();
 
 //        Buat StringRequest Baru
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url_post_new_acc,
@@ -191,7 +177,7 @@ public class CreateNewAcc extends AppCompatActivity {
                                 Intent i = new Intent(CreateNewAcc.this, LoginScreen.class);
                                 startActivity(i);
                             } else if (sukses == 0) {
-                                Toast.makeText(CreateNewAcc.this, "Gagal Buat Akun Baru. Silakan Cek Kembali", Toast.LENGTH_LONG).show();
+                                Toast.makeText(CreateNewAcc.this, "Username Anda sudah ada yang ambil.", Toast.LENGTH_LONG).show();
                             } else {
                                 Toast.makeText(CreateNewAcc.this, "Silakan isi Username dan Password Anda", Toast.LENGTH_LONG).show();
                             }
@@ -225,33 +211,11 @@ public class CreateNewAcc extends AppCompatActivity {
             }
 
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            public Map<String, String> getHeaders() {
                 Map<String, String> params = new HashMap<>();
                 params.put("Content-Type", "application/x-www-form-urlencoded");
                 return params;
             }
-            //            === Code from Stack Overflow ===
-//            @Override
-//            public String getBodyContentType() {
-//                return "application/json; charset=utf-8";
-//            }
-//
-//            @Override
-//            public byte[] getBody() throws AuthFailureError {
-//                try {
-//                    return requestBody == null ? null : requestBody.getBytes("utf-8");
-//                }catch (UnsupportedEncodingException ex){
-//                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
-//                    return null;
-//                }
-//            }
-//
-//            @Override
-//            protected Response<String> parseNetworkResponse(NetworkResponse response) {
-//                String responseString = "";
-//                if (response != null) responseString = String.valueOf(response.statusCode);
-//                return Response.success(responseString, HttpHeaderParser.parseCacheHeaders(response));
-//            }
         };
         queue.getCache().clear();
         queue.add(stringRequest);

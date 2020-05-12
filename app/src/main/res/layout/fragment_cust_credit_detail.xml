@@ -16,13 +16,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Kredit Saya"
+        android:background="#5EC639"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
         style="@style/CustomerListTitleStyle" />
 
     <TextView
         android:id="@+id/txtProduk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nama Produk"
+        android:text="<Nama Produk>"
+        android:textSize="20sp"
+        android:textStyle="bold"
         style="@style/CustomerListSubTitleStyle" />
 
     <RelativeLayout
@@ -39,8 +45,10 @@
             android:layout_marginBottom="0dp"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="5dp"
+            android:layout_marginRight="170dp"
             android:paddingBottom="0dp"
             android:text="Harga OTR"
+            android:textSize="18sp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -52,7 +60,8 @@
             android:layout_toRightOf="@id/txtOTR"
             android:checked="false"
             android:gravity="left|center_vertical"
-            android:text="Rp Harga"
+            android:text="Rp <Harga>"
+            android:textSize="18sp"
             android:textAppearance="?android:attr/textAppearanceSmall" />
     </RelativeLayout>
 
@@ -70,8 +79,10 @@
             android:layout_marginBottom="0dp"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="5dp"
+            android:layout_marginRight="170dp"
             android:paddingBottom="0dp"
             android:text="Uang Muka"
+            android:textSize="18sp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -83,7 +94,8 @@
             android:layout_toRightOf="@id/txtUangMuka"
             android:checked="false"
             android:gravity="left|center_vertical"
-            android:text="Rp Jumlah"
+            android:text="Rp <Jumlah>"
+            android:textSize="18sp"
             android:textAppearance="?android:attr/textAppearanceSmall" />
     </RelativeLayout>
 
@@ -98,12 +110,13 @@
             android:id="@+id/txtTenor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="5dp"
+            android:layout_marginRight="170dp"
             android:paddingBottom="0dp"
             android:text="Tenor"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/txtBulan"
@@ -114,7 +127,8 @@
             android:layout_toRightOf="@id/txtTenor"
             android:checked="false"
             android:gravity="left|center_vertical"
-            android:text="Berapa bulan"
+            android:text="<Bulan>"
+            android:textSize="18sp"
             android:textAppearance="?android:attr/textAppearanceSmall" />
     </RelativeLayout>
 
@@ -129,12 +143,13 @@
             android:id="@+id/txtBunga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="5dp"
+            android:layout_marginRight="170dp"
             android:paddingBottom="0dp"
             android:text="Bunga"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/txtPersen"
@@ -145,7 +160,8 @@
             android:layout_toRightOf="@id/txtBunga"
             android:checked="false"
             android:gravity="left|center_vertical"
-            android:text="Berapa %"
+            android:text="<Persentase>"
+            android:textSize="18sp"
             android:textAppearance="?android:attr/textAppearanceSmall" />
     </RelativeLayout>
 
@@ -163,8 +179,10 @@
             android:layout_marginBottom="0dp"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="5dp"
+            android:layout_marginRight="75dp"
             android:paddingBottom="0dp"
             android:text="Angsuran per Bulan"
+            android:textSize="18sp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -176,7 +194,8 @@
             android:layout_toRightOf="@id/txtAngsuran"
             android:checked="false"
             android:gravity="left|center_vertical"
-            android:text="Rp Jumlah"
+            android:text="Rp <Jumlah>"
+            android:textSize="18sp"
             android:textAppearance="?android:attr/textAppearanceSmall" />
     </RelativeLayout>
 
@@ -193,9 +212,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
             android:layout_alignParentLeft="true"
+            android:layout_marginRight="100dp"
             android:layout_marginTop="5dp"
             android:paddingBottom="0dp"
             android:text="Karyawan"
+            android:textSize="18sp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -207,7 +228,8 @@
             android:layout_toRightOf="@id/txtKaryawan"
             android:checked="false"
             android:gravity="left|center_vertical"
-            android:text="Nama Karyawan"
+            android:text="<Nama Karyawan>"
+            android:textSize="18sp"
             android:textAppearance="?android:attr/textAppearanceSmall" />
     </RelativeLayout>
 
@@ -223,6 +245,10 @@
             android:layout_height="wrap_content"
             android:background="#5EC639 "
             android:text="OK"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#ffffff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

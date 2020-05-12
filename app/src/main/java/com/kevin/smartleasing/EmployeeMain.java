@@ -106,7 +106,7 @@ public class EmployeeMain extends AppCompatActivity implements NavigationView.On
             public void onErrorResponse(VolleyError error) {
 //                Bila terdapat error
                 Log.e("EmployeeMain", error.getMessage());
-                Toast.makeText(EmployeeMain.this, "Silahkan cek koneksi internet Anda", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EmployeeMain.this, "Silahkan Cek Koneksi Internet Anda", Toast.LENGTH_SHORT).show();
             }
         });
 //        Menambahkan stringRequest ke requestQueue agar diproses

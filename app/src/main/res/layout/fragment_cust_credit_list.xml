@@ -14,8 +14,16 @@
         android:id="@+id/txtCustomerList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Credit List"
+        android:text="List Kredit"
+        android:background="#5EC639"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
         style="@style/CustomerListTitleStyle" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <!--    Pake Recycler View untuk tampilkan semua Credit-->
 
