@@ -97,8 +97,8 @@ public class EmployeeMain extends AppCompatActivity implements NavigationView.On
                             if (savedInstanceState == null) {
                                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new EmpCustomerList()).commit();
                             }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                        } catch (JSONException ex) {
+                            ex.printStackTrace();
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -115,7 +115,7 @@ public class EmployeeMain extends AppCompatActivity implements NavigationView.On
     }
 
     //    Fungsi yang dipanggil fragment untuk mendapatkan data
-    public ArrayList<ArrayList<String>> getDataCustomer() {
+    public ArrayList<ArrayList<String>> getCustomerList() {
         ArrayList<ArrayList<String>> data = new ArrayList<>();
         data.add(0, nama);
         data.add(1, deskripsi);

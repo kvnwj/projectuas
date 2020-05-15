@@ -30,7 +30,7 @@ import androidx.core.content.ContextCompat;
 
 public class LoginScreen extends AppCompatActivity {
 
-    String url_login = "http://kev.inkomtek.co.id/umn/android/loginProcess.php";
+    private String url_login = "http://kev.inkomtek.co.id/umn/android/loginProcess.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,18 +108,6 @@ public class LoginScreen extends AppCompatActivity {
                 };
                 queue.getCache().clear();
                 queue.add(stringRequest);
-////                Program sementara untuk login ke Employee/Customer
-//                if (username.equals("emp")) {
-////                Membuat Intent untuk membuka activity employee
-//                    Log.i("LoginScreen", "Username: " + username + " Accessing EmployeeMain");
-//                    Intent i = new Intent(LoginScreen.this, EmployeeMain.class);
-//                    startActivity(i);
-//                } else {
-////                    Membuat Intent untuk membuka activity Customer
-//                    Log.i("LoginScreen", "Username: " + username + " Accessing CustomerMain");
-//                    Intent i = new Intent(LoginScreen.this, CustomerMain.class);
-//                    startActivity(i);
-//                }
             }
         });
 

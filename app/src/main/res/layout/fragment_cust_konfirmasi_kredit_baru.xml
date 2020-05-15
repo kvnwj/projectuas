@@ -58,7 +58,7 @@
             android:layout_toRightOf="@id/txtBunga"
             android:checked="false"
             android:gravity="left|center_vertical"
-            android:text="<Persentase>"
+            android:text="Persentase"
             android:textSize="18sp"
             android:textAppearance="?android:attr/textAppearanceSmall" />
     </RelativeLayout>

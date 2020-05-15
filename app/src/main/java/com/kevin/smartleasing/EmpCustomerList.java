@@ -41,7 +41,7 @@ public class EmpCustomerList extends Fragment implements MyCustomerListAdapter.O
 //        Ambil data dari Activity EmployeeMain
         EmployeeMain activity = (EmployeeMain) getActivity();
         assert null != activity;
-        data = activity.getDataCustomer();
+        data = activity.getCustomerList();
 
 //        Buat Adapter baru
         MyCustomerListAdapter myAdapter = new MyCustomerListAdapter(getActivity().getApplicationContext(), data.get(0), data.get(1), this);
