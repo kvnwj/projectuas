@@ -9,6 +9,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -45,6 +46,8 @@ public class LoginScreen extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final ProgressBar progressBar = findViewById(R.id.loginProgressBar);
+                progressBar.setVisibility(View.VISIBLE);
                 final String username = edtUserName.getText().toString();
                 final String password = edtPassword.getText().toString();
 //                Gunakan VOLLEY untuk proses login
@@ -81,6 +84,7 @@ public class LoginScreen extends AppCompatActivity {
                                 } catch (JSONException ex) {
                                     ex.printStackTrace();
                                 }
+                                progressBar.setVisibility(View.INVISIBLE);
                             }
                         }, new Response.ErrorListener() {
                     @Override

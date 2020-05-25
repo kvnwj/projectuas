@@ -37,7 +37,7 @@
         android:gravity="center_vertical">
 
         <TextView
-            android:id="@+id/txtBunga"
+            android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
@@ -50,12 +50,12 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/txtPersen"
+            android:id="@+id/txtBunga"
             android:layout_width="wrap_content"
             android:minWidth="50dp"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/txtBunga"
-            android:layout_toRightOf="@id/txtBunga"
+            android:layout_alignBaseline="@id/textView14"
+            android:layout_toRightOf="@id/textView14"
             android:checked="false"
             android:gravity="left|center_vertical"
             android:text="Persentase"
@@ -71,7 +71,7 @@
         android:gravity="center_vertical">
 
         <TextView
-            android:id="@+id/txtAngsuran"
+            android:id="@+id/textView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
@@ -84,12 +84,12 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/txtJumlah"
+            android:id="@+id/txtUangMuka"
             android:layout_width="wrap_content"
             android:minWidth="50dp"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/txtAngsuran"
-            android:layout_toRightOf="@id/txtAngsuran"
+            android:layout_alignBaseline="@id/textView15"
+            android:layout_toRightOf="@id/textView15"
             android:checked="false"
             android:gravity="left|center_vertical"
             android:text="Rp Jumlah"

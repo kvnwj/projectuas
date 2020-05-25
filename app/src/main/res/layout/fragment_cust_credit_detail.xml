@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,7 +22,7 @@
         style="@style/CustomerListTitleStyle" />
 
     <TextView
-        android:id="@+id/txtProduk"
+        android:id="@+id/txtNamaProduk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nama Produk"
@@ -36,207 +35,152 @@
         android:id="@+id/feedHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/txtOTR"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="170dp"
-            android:paddingBottom="0dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
             android:text="Harga OTR"
-            android:textSize="18sp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/txtHarga"
+            android:id="@+id/txtHargaOTR"
             android:layout_width="wrap_content"
-            android:minWidth="50dp"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/txtOTR"
-            android:layout_toRightOf="@id/txtOTR"
-            android:checked="false"
-            android:gravity="left|center_vertical"
+            android:layout_toEndOf="@id/txtOTR"
             android:text="Rp Harga"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textSize="18sp"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-    </RelativeLayout>
+            android:layout_alignParentEnd="true"
+            android:textAlignment="viewEnd" />
 
-    <RelativeLayout
-        android:orientation="horizontal"
-        android:id="@+id/feedHeader2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/textView12"
+            android:text="Uang Muka"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="18sp"
+            android:layout_below="@id/txtOTR" />
 
         <TextView
             android:id="@+id/txtUangMuka"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="170dp"
-            android:paddingBottom="0dp"
-            android:text="Uang Muka"
-            android:textSize="18sp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/txtJumlah"
+            android:text="Rp Jumlah"
             android:layout_width="wrap_content"
             android:minWidth="50dp"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/txtUangMuka"
-            android:layout_toRightOf="@id/txtUangMuka"
-            android:checked="false"
-            android:gravity="left|center_vertical"
-            android:text="Rp Jumlah"
+            android:layout_alignBaseline="@id/textView12"
+            android:layout_toEndOf="@id/textView12"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="viewEnd"
             android:textSize="18sp"
             android:textAppearance="?android:attr/textAppearanceSmall" />
-    </RelativeLayout>
 
-    <RelativeLayout
-        android:orientation="horizontal"
-        android:id="@+id/feedHeader3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/textView13"
+            android:text="Tenor"
+            android:layout_below="@id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/txtTenor"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="170dp"
-            android:paddingBottom="0dp"
-            android:text="Tenor"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/txtBulan"
-            android:layout_width="wrap_content"
             android:minWidth="50dp"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/txtTenor"
-            android:layout_toRightOf="@id/txtTenor"
-            android:checked="false"
-            android:gravity="left|center_vertical"
+            android:layout_alignBaseline="@id/textView13"
+            android:layout_toEndOf="@id/textView13"
             android:text="Bulan"
             android:textSize="18sp"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="viewEnd"
             android:textAppearance="?android:attr/textAppearanceSmall" />
-    </RelativeLayout>
 
-    <RelativeLayout
-        android:orientation="horizontal"
-        android:id="@+id/feedHeader4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="Bunga"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/textView13" />
 
         <TextView
             android:id="@+id/txtBunga"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="170dp"
-            android:paddingBottom="0dp"
-            android:text="Bunga"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/txtPersen"
-            android:layout_width="wrap_content"
             android:minWidth="50dp"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/txtBunga"
-            android:layout_toRightOf="@id/txtBunga"
-            android:checked="false"
-            android:gravity="left|center_vertical"
+            android:layout_alignBaseline="@id/textView14"
+            android:layout_toEndOf="@id/textView14"
             android:text="Persentase"
             android:textSize="18sp"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-    </RelativeLayout>
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="viewEnd" />
 
-    <RelativeLayout
-        android:orientation="horizontal"
-        android:id="@+id/feedHeader5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
+            android:text="Angsuran per Bulan"
+            android:textSize="18sp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_below="@id/textView14" />
 
         <TextView
             android:id="@+id/txtAngsuran"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="75dp"
-            android:paddingBottom="0dp"
-            android:text="Angsuran per Bulan"
-            android:textSize="18sp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/edtJumlah"
-            android:layout_width="wrap_content"
             android:minWidth="50dp"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/txtAngsuran"
-            android:layout_toRightOf="@id/txtAngsuran"
+            android:layout_alignBaseline="@id/textView15"
+            android:layout_toEndOf="@id/textView15"
             android:checked="false"
-            android:gravity="left|center_vertical"
             android:text="Rp Jumlah"
             android:textSize="18sp"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:orientation="horizontal"
-        android:id="@+id/feedHeader6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical">
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="viewEnd" />
 
         <TextView
-            android:id="@+id/txtKaryawan"
+            android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginRight="100dp"
-            android:layout_marginTop="5dp"
-            android:paddingBottom="0dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
             android:text="Karyawan"
             android:textSize="18sp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_below="@id/textView15" />
 
         <TextView
-            android:id="@+id/edtNama"
+            android:id="@+id/txtNamaKaryawan"
             android:layout_width="wrap_content"
             android:minWidth="50dp"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/txtKaryawan"
-            android:layout_toRightOf="@id/txtKaryawan"
-            android:checked="false"
-            android:gravity="left|center_vertical"
+            android:layout_alignBaseline="@id/textView16"
+            android:layout_toEndOf="@id/textView16"
             android:text="Nama Karyawan"
             android:textSize="18sp"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-    </RelativeLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp">
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="viewEnd" />
 
         <Button
             android:id="@+id/btnOk"
@@ -249,9 +193,8 @@
             android:textStyle="bold"
             android:gravity="center"
             android:textColor="#ffffff"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_below="@id/txtNamaKaryawan"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="64dp" />
+    </RelativeLayout>
 </LinearLayout>

@@ -23,17 +23,19 @@
         android:contentDescription="Profile Picture" />
 
     <TextView
+        android:id="@+id/nav_nama"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="Kevin Widjaja"
+        android:text="Nama Customer"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/colorPrimaryDark" />
 
     <TextView
+        android:id="@+id/nav_no_telp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="kevin.widjaja@gmail.com"
+        android:text="Nomor Telp Customer"
         android:textColor="@color/colorPrimaryDark" />
 
 </LinearLayout>

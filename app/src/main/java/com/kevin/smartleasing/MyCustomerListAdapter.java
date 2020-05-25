@@ -51,8 +51,8 @@ public class MyCustomerListAdapter extends RecyclerView.Adapter<MyCustomerListAd
 
         MyViewHolder(@NonNull View itemView, OnCustomerListener onCustomerListener) {
             super(itemView);
-            nama = itemView.findViewById(R.id.txtNama);
-            deskripsi = itemView.findViewById(R.id.txtDeskripsi);
+            nama = itemView.findViewById(R.id.txtNamaRow);
+            deskripsi = itemView.findViewById(R.id.txtDeskripsiRow);
             this.onCustomerListener = onCustomerListener;
 
             itemView.setOnClickListener(this);

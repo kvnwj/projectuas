@@ -37,7 +37,7 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/txtNama"
+            android:id="@+id/txtNamaRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imgUser"

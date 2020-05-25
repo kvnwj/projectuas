@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 public class EmpCustomerList extends Fragment implements MyCustomerListAdapter.OnCustomerListener {
 
     RecyclerView recyclerView;
-    ArrayList<String> nama, deskripsi;
 
     public EmpCustomerList() {
         // Required empty public constructor
@@ -29,14 +28,8 @@ public class EmpCustomerList extends Fragment implements MyCustomerListAdapter.O
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_emp_customer_list, container, false);
 
-//        Instantiate variables
-        nama = new ArrayList<>();
-        deskripsi = new ArrayList<>();
-
 //        Code untuk Menampilkan RecyclerView, mengisi data ke RecyclerView
         recyclerView = v.findViewById(R.id.recyclerView);
-
-//        Menambahkan on click listener kepada RecyclerView
 
 //        Ambil data dari Activity EmployeeMain
         EmployeeMain activity = (EmployeeMain) getActivity();

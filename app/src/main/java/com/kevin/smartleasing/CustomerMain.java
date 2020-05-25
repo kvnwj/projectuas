@@ -1,11 +1,11 @@
 package com.kevin.smartleasing;
 
-import android.app.DownloadManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -39,9 +39,11 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawer;
     private String mCustomerID;
     private String url_get_customer_data = "http://kev.inkomtek.co.id/umn/android/getCustomerMainData.php";
-    private ArrayList<HashMap<String, String>> mCreditList;
-    private HashMap<String,String> mCustomerProfile;
 
+    private ArrayList<HashMap<String, String>> mCreditList;
+    private HashMap<String, String> mCustomerProfile;
+
+    //    Tags buat credit customer
     private static final String TAG_uang_muka = "uang_muka";
     private static final String TAG_tenor = "tenor";
     private static final String TAG_angsuran_per_bulan = "angsuran_per_bulan";
@@ -52,6 +54,7 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
     private static final String TAG_nama_depan_emp = "nama_depan_emp";
     private static final String TAG_nama_belakang_emp = "nama_belakang_emp";
 
+    //    Tags buat profil customer
     private static final String TAG_nama_depan_cust = "nama_depan_cust";
     private static final String TAG_nama_belakang_cust = "nama_belakang_cust";
     private static final String TAG_jenis_kelamin = "jenis_kelamin";
@@ -63,7 +66,7 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_main);
 
@@ -71,7 +74,7 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        final NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -115,16 +118,29 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
                             mCustomerProfile = new HashMap<>();
 //                            Ambil data profil customer
                             JSONObject profile = object.getJSONObject("profile");
-                            mCustomerProfile.put("nama_depan",profile.getString(TAG_nama_depan_cust));
-                            mCustomerProfile.put("nama_belakang",profile.getString(TAG_nama_belakang_cust));
-                            mCustomerProfile.put(TAG_jenis_kelamin,profile.getString(TAG_jenis_kelamin));
-                            mCustomerProfile.put(TAG_nik,profile.getString(TAG_nik));
-                            mCustomerProfile.put(TAG_alamat,profile.getString(TAG_alamat));
-                            mCustomerProfile.put(TAG_tempat_lahir,profile.getString(TAG_tempat_lahir));
-                            mCustomerProfile.put(TAG_tanggal_lahir,profile.getString(TAG_tanggal_lahir));
-                            mCustomerProfile.put(TAG_no_telp,profile.getString(TAG_no_telp));
+                            mCustomerProfile.put("nama_depan", profile.getString(TAG_nama_depan_cust));
+                            mCustomerProfile.put("nama_belakang", profile.getString(TAG_nama_belakang_cust));
+                            mCustomerProfile.put(TAG_jenis_kelamin, profile.getString(TAG_jenis_kelamin));
+                            mCustomerProfile.put(TAG_nik, profile.getString(TAG_nik));
+                            mCustomerProfile.put(TAG_alamat, profile.getString(TAG_alamat));
+                            mCustomerProfile.put(TAG_tempat_lahir, profile.getString(TAG_tempat_lahir));
+                            mCustomerProfile.put(TAG_tanggal_lahir, profile.getString(TAG_tanggal_lahir));
+                            mCustomerProfile.put(TAG_no_telp, profile.getString(TAG_no_telp));
 
                             Toast.makeText(CustomerMain.this, "Welcome, " + mCustomerProfile.get("nama_depan"), Toast.LENGTH_LONG).show();
+
+//                            Tampilkan nama dan nomor telpon di navigation drawer
+                            TextView nav_nama = findViewById(R.id.nav_nama);
+                            TextView nav_no_telp = findViewById(R.id.nav_no_telp);
+                            String nama_lengkap = mCustomerProfile.get("nama_depan") + ' ' + mCustomerProfile.get("nama_belakang");
+                            nav_nama.setText(nama_lengkap);
+                            nav_no_telp.setText(mCustomerProfile.get(TAG_no_telp));
+
+//                            Tampilkan fragment Credit List saat pertama kali menggunakan data dari Volley
+//                            Fragment ditampilkan setelah Volley sudah mendapatkan Response dan Data sudah OK.
+                            if (savedInstanceState == null) {
+                                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CustCreditList()).commit();
+                            }
                         } catch (JSONException ex) {
                             ex.printStackTrace();
                         }
@@ -153,12 +169,7 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
         };
         queue.getCache().clear();
         queue.add(stringRequest);
-
-//        Tampilkan fragment Credit List saat pertama kali
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CustCreditList()).commit();
-            navigationView.setCheckedItem(R.id.nav_credit_list);
-        }
+        navigationView.setCheckedItem(R.id.nav_credit_list);
     }
 
     @Override
@@ -206,5 +217,17 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public HashMap<String, String> getCustomerProfile() {
+        return mCustomerProfile;
+    }
+
+    public ArrayList<HashMap<String, String>> getCreditList() {
+        return mCreditList;
+    }
+
+    public HashMap<String, String> getSingleCredit(int position) {
+        return mCreditList.get(position);
     }
 }

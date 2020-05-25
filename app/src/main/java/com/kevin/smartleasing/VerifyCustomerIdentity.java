@@ -97,6 +97,7 @@ public class VerifyCustomerIdentity extends Fragment {
                         Toast.makeText(getContext(), "Terima Kasih, Permintaan Anda Sedang Diproses", Toast.LENGTH_LONG).show();
 //                        Kembali ke Fragment EmpCustomerList
                         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new EmpCustomerList()).commit();
+                        getActivity().getSupportFragmentManager().popBackStack();
                     }
                 });
                 dialog.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
