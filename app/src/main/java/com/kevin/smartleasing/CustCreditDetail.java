@@ -56,6 +56,7 @@ public class CustCreditDetail extends Fragment {
         TextView txtBunga = v.findViewById(R.id.txtBunga);
         TextView txtAngsuran = v.findViewById(R.id.txtAngsuran);
         TextView txtNamaKaryawan = v.findViewById(R.id.txtNamaKaryawan);
+        TextView txtStatus = v.findViewById(R.id.txtStatus);
 
         String hargaOTR = "Rp. " + thisCredit.get(TAG_harga_otr);
         String uangMuka = "Rp. " + thisCredit.get(TAG_uang_muka);
@@ -74,6 +75,7 @@ public class CustCreditDetail extends Fragment {
         txtBunga.setText(bunga);
         txtAngsuran.setText(angsuranPerBulan);
         txtNamaKaryawan.setText(namaKaryawan);
+        txtStatus.setText(thisCredit.get(TAG_status));
 
 //        Code untuk tombol OK
         Button btnOK = v.findViewById(R.id.btnOk);
