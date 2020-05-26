@@ -1,7 +1,6 @@
 package com.kevin.smartleasing;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class CustCreditList extends Fragment implements MyCreditListAdapter.OnCreditClickListener {
 
-    RecyclerView recyclerView;
-    ArrayList<HashMap<String, String>> mCreditList;
+    private RecyclerView recyclerView;
+    private ArrayList<HashMap<String, String>> mCreditList;
 
     public CustCreditList() {
         // Required empty public constructor
@@ -39,8 +38,6 @@ public class CustCreditList extends Fragment implements MyCreditListAdapter.OnCr
         CustomerMain activity = (CustomerMain) getActivity();
         assert null != activity;
         mCreditList = activity.getCreditList();
-        Log.i("CustCreditList", "Nama Produk: " + mCreditList.get(0).get("nama_produk"));
-
 //        Buat Adapter Baru
         MyCreditListAdapter myAdapter = new MyCreditListAdapter(getActivity().getApplicationContext(), mCreditList, this);
         recyclerView.setAdapter(myAdapter);

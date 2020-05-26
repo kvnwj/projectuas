@@ -164,7 +164,6 @@ public class CreateNewAcc extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.i("VOLLEY", response);
                         try {
 //                            Buat JSONObject response
                             JSONObject object = new JSONObject(response);

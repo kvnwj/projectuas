@@ -25,12 +25,12 @@ public class MyCreditListAdapter extends RecyclerView.Adapter<MyCreditListAdapte
     private static final String TAG_nama_depan_emp = "nama_depan_emp";
     private static final String TAG_nama_belakang_emp = "nama_belakang_emp";
 
-    ArrayList<HashMap<String, String>> mCreditList;
-    Context context;
+    private ArrayList<HashMap<String, String>> mCreditList;
+    private Context context;
     private OnCreditClickListener mOnCreditClickListener;
-    int itemCount;
+    private int itemCount;
 
-    public MyCreditListAdapter(Context ct, @NonNull ArrayList<HashMap<String, String>> mCreditList, OnCreditClickListener onCreditClickListener) {
+    MyCreditListAdapter(Context ct, @NonNull ArrayList<HashMap<String, String>> mCreditList, OnCreditClickListener onCreditClickListener) {
         this.mCreditList = mCreditList;
         this.context = ct;
         this.mOnCreditClickListener = onCreditClickListener;
@@ -50,7 +50,11 @@ public class MyCreditListAdapter extends RecyclerView.Adapter<MyCreditListAdapte
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.nama.setText(mCreditList.get(position).get(TAG_nama_produk));
-        holder.deskripsi.setText(mCreditList.get(position).get(TAG_harga_otr));
+        String deskripsi = "Rp. " + mCreditList.get(position).get(TAG_harga_otr);
+        if (mCreditList.get(position).get(TAG_harga_otr).equals("dummy")) {
+            deskripsi = "";
+        }
+        holder.deskripsi.setText(deskripsi);
     }
 
     @Override
@@ -63,7 +67,7 @@ public class MyCreditListAdapter extends RecyclerView.Adapter<MyCreditListAdapte
         TextView nama, deskripsi;
         OnCreditClickListener onCreditClickListener;
 
-        public MyViewHolder(@NonNull View itemView, OnCreditClickListener onCreditClickListener) {
+        MyViewHolder(@NonNull View itemView, OnCreditClickListener onCreditClickListener) {
             super(itemView);
             nama = itemView.findViewById(R.id.txtNamaRow);
             deskripsi = itemView.findViewById(R.id.txtDeskripsiRow);

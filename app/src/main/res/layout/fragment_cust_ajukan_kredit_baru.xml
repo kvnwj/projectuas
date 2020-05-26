@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -36,14 +35,14 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:textSize="18sp"
-        android:hint="Nama Produk" />
+        android:text="Nama Produk" />
 
     <Spinner
         android:id="@+id/spinnerNamaProduk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:paddingTop="16dp" />
+        android:layout_marginTop="16dp" />
 
     <TextView
         android:id="@+id/txtHargaOTR"
@@ -51,57 +50,86 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:textSize="18sp"
-        android:hint="Harga OTR" />
+        android:text="Harga OTR"
+        android:layout_marginTop="16dp" />
 
-    <Spinner
-        android:id="@+id/spinnerHargaOTR"
+    <TextView
+        android:id="@+id/txtBungaBaru"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:ems="10"
         android:textSize="18sp"
-        android:paddingTop="16dp" />
+        android:text="Bunga"
+        android:layout_marginTop="16dp" />
 
     <EditText
         android:id="@+id/edtUangMuka"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:ems="10"
-        android:textSize="18sp"
-        android:hint="Uang Muka" />
+        android:hint="Uang Muka"
+        android:inputType="numberSigned|numberDecimal"
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/textView18"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:textSize="18sp"
-        android:hint="Tenor" />
+        android:layout_marginTop="16dp"
+        android:text="Tenor (dalam Bulan)" />
+
 
     <Spinner
         android:id="@+id/spinnerTenor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:paddingTop="16dp" />
+        android:layout_marginTop="16dp" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ProgressBar
+        android:id="@+id/creditProgressBar"
+        style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp">
+        android:visibility="invisible" />
 
-        <Button
-            android:id="@+id/btnSubmit"
-            style="@style/generalButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#5EC639"
-            android:text="SUBMIT"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/txtAPB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="18sp"
+        android:text="Angsuran Per Bulan: " />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btnHitung"
+        style="@style/generalButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="#5EC639"
+        android:text="HITUNG"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        style="@style/generalButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="#5EC639"
+        android:text="SUBMIT"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:layout_marginTop="8dp" />
+
+
 </LinearLayout>

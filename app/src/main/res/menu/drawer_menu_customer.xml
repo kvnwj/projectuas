@@ -8,6 +8,10 @@
             android:icon="@drawable/ic_credit_list"
             android:title="@string/custMenuOne" />
         <item
+            android:id="@+id/nav_create_new_credit"
+            android:icon="@drawable/ic_add_new_credit"
+            android:title="Add New Credit" />
+        <item
             android:id="@+id/nav_cust_profile"
             android:icon="@drawable/ic_account_circle"
             android:title="@string/custMenuTwo" />

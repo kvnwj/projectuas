@@ -41,9 +41,10 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
     private String url_get_customer_data = "http://kev.inkomtek.co.id/umn/android/getCustomerMainData.php";
 
     private ArrayList<HashMap<String, String>> mCreditList;
+    private ArrayList<HashMap<String, String>> mProductList;
     private HashMap<String, String> mCustomerProfile;
 
-    //    Tags buat credit customer
+    //    Tags buat transaksi credit customer
     private static final String TAG_uang_muka = "uang_muka";
     private static final String TAG_tenor = "tenor";
     private static final String TAG_angsuran_per_bulan = "angsuran_per_bulan";
@@ -53,6 +54,7 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
     private static final String TAG_bunga = "bunga";
     private static final String TAG_nama_depan_emp = "nama_depan_emp";
     private static final String TAG_nama_belakang_emp = "nama_belakang_emp";
+    private static final String TAG_ID_transaksi = "ID_transaksi";
 
     //    Tags buat profil customer
     private static final String TAG_nama_depan_cust = "nama_depan_cust";
@@ -63,7 +65,10 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
     private static final String TAG_tempat_lahir = "tempat_lahir";
     private static final String TAG_tanggal_lahir = "tanggal_lahir";
     private static final String TAG_no_telp = "no_telp";
+    private static final String TAG_ID_customer = "ID_customer";
 
+    //    Tags buat product list
+    private static final String TAG_ID_produk = "ID_produk";
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -85,7 +90,7 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
         Intent intent = getIntent();
         mCustomerID = intent.getStringExtra("ID_customer");
 
-//        Ambil data dari API getCustomerMainData.php menggunakan VOLLEY
+        //        Ambil data dari API getCustomerMainData.php menggunakan VOLLEY
         RequestQueue queue = Volley.newRequestQueue(CustomerMain.this);
         queue.start();
 //        Buat StringRequest Baru
@@ -96,26 +101,60 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
                         try {
 //                            Buat JSONObject berdasarkan String response yang diterima
                             JSONObject object = new JSONObject(response);
-                            JSONArray credit_list = object.getJSONArray("credit_list");
+                            String adaTransaksi = object.getString("transaksi");
                             mCreditList = new ArrayList<>();
+//                            Bila ada Transaksi
+                            if (adaTransaksi.equals("ada")) {
+                                JSONArray credit_list = object.getJSONArray("credit_list");
 //                            Looping untuk mengambil data dari JSONArray credit_list
-                            for (int i = 0; i < credit_list.length(); i++) {
-                                HashMap<String, String> row = new HashMap<>();
-                                JSONObject obj = credit_list.getJSONObject(i);
+                                for (int i = 0; i < credit_list.length(); i++) {
+                                    HashMap<String, String> row = new HashMap<>();
+                                    JSONObject obj = credit_list.getJSONObject(i);
+                                    row.put(TAG_ID_transaksi, obj.getString(TAG_ID_transaksi));
+                                    row.put(TAG_uang_muka, obj.getString(TAG_uang_muka));
+                                    row.put(TAG_tenor, obj.getString(TAG_tenor));
+                                    row.put(TAG_angsuran_per_bulan, obj.getString(TAG_angsuran_per_bulan));
+                                    row.put(TAG_status, obj.getString(TAG_status));
+                                    row.put(TAG_nama_produk, obj.getString(TAG_nama_produk));
+                                    row.put(TAG_harga_otr, obj.getString(TAG_harga_otr));
+                                    row.put(TAG_bunga, obj.getString(TAG_bunga));
+                                    row.put(TAG_nama_depan_emp, obj.getString(TAG_nama_depan_emp));
+                                    row.put(TAG_nama_belakang_emp, obj.getString(TAG_nama_belakang_emp));
+                                    mCreditList.add(row);
+                                }
+                            } else {
+//                                Masukkan Data kosongan
+                                HashMap<String, String> dummy = new HashMap<>();
+                                dummy.put(TAG_ID_transaksi, "-1");
+                                dummy.put(TAG_uang_muka, "123");
+                                dummy.put(TAG_tenor, "123");
+                                dummy.put(TAG_angsuran_per_bulan, "12");
+                                dummy.put(TAG_status, "REJECTED");
+                                dummy.put(TAG_nama_produk, "Tidak Ada Kredit");
+                                dummy.put(TAG_harga_otr, "dummy");
+                                dummy.put(TAG_bunga, "0.01");
+                                dummy.put(TAG_nama_depan_emp, "John");
+                                dummy.put(TAG_nama_belakang_emp, "Doe");
+                                mCreditList.add(dummy);
+                            }
 
-                                row.put(TAG_uang_muka, obj.getString(TAG_uang_muka));
-                                row.put(TAG_tenor, obj.getString(TAG_tenor));
-                                row.put(TAG_angsuran_per_bulan, obj.getString(TAG_angsuran_per_bulan));
-                                row.put(TAG_status, obj.getString(TAG_status));
+//                            Ambil data product
+                            JSONArray product_list = object.getJSONArray("product_list");
+                            mProductList = new ArrayList<>();
+//                            Looping untuk ambil data dari JSONArray product_list
+                            for (int i = 0; i < product_list.length(); i++) {
+                                HashMap<String, String> row = new HashMap<>();
+                                JSONObject obj = product_list.getJSONObject(i);
+
+                                row.put(TAG_ID_produk, obj.getString(TAG_ID_produk));
                                 row.put(TAG_nama_produk, obj.getString(TAG_nama_produk));
                                 row.put(TAG_harga_otr, obj.getString(TAG_harga_otr));
                                 row.put(TAG_bunga, obj.getString(TAG_bunga));
-                                row.put(TAG_nama_depan_emp, obj.getString(TAG_nama_depan_emp));
-                                row.put(TAG_nama_belakang_emp, obj.getString(TAG_nama_belakang_emp));
-                                mCreditList.add(row);
+                                mProductList.add(row);
                             }
 
                             mCustomerProfile = new HashMap<>();
+                            mCustomerProfile.put(TAG_ID_customer, mCustomerID);
 //                            Ambil data profil customer
                             JSONObject profile = object.getJSONObject("profile");
                             mCustomerProfile.put("nama_depan", profile.getString(TAG_nama_depan_cust));
@@ -127,8 +166,6 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
                             mCustomerProfile.put(TAG_tanggal_lahir, profile.getString(TAG_tanggal_lahir));
                             mCustomerProfile.put(TAG_no_telp, profile.getString(TAG_no_telp));
 
-                            Toast.makeText(CustomerMain.this, "Welcome, " + mCustomerProfile.get("nama_depan"), Toast.LENGTH_LONG).show();
-
 //                            Tampilkan nama dan nomor telpon di navigation drawer
                             TextView nav_nama = findViewById(R.id.nav_nama);
                             TextView nav_no_telp = findViewById(R.id.nav_no_telp);
@@ -138,9 +175,8 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
 
 //                            Tampilkan fragment Credit List saat pertama kali menggunakan data dari Volley
 //                            Fragment ditampilkan setelah Volley sudah mendapatkan Response dan Data sudah OK.
-                            if (savedInstanceState == null) {
-                                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CustCreditList()).commit();
-                            }
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CustCreditList()).commit();
+
                         } catch (JSONException ex) {
                             ex.printStackTrace();
                         }
@@ -156,7 +192,7 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("ID_customer", mCustomerID);
+                params.put(TAG_ID_customer, mCustomerID);
                 return params;
             }
 
@@ -213,6 +249,10 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
 //                Buka fragment customer profile
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CustomerProfile()).commit();
                 break;
+            case R.id.nav_create_new_credit:
+//                Buka fragment create new credit:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CustAjukanKreditBaru()).commit();
+                break;
         }
 
         drawer.closeDrawer(GravityCompat.START);
@@ -225,6 +265,10 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
 
     public ArrayList<HashMap<String, String>> getCreditList() {
         return mCreditList;
+    }
+
+    public ArrayList<HashMap<String, String>> getProductList() {
+        return mProductList;
     }
 
     public HashMap<String, String> getSingleCredit(int position) {
