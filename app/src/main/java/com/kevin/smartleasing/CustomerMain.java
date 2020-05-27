@@ -155,6 +155,7 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
 
                             mCustomerProfile = new HashMap<>();
                             mCustomerProfile.put(TAG_ID_customer, mCustomerID);
+
 //                            Ambil data profil customer
                             JSONObject profile = object.getJSONObject("profile");
                             mCustomerProfile.put("nama_depan", profile.getString(TAG_nama_depan_cust));
@@ -226,6 +227,7 @@ public class CustomerMain extends AppCompatActivity implements NavigationView.On
                 public void onClick(DialogInterface dialog, int which) {
                     Log.i("EmployeeMain", "Nothing on backstack, calling super");
                     CustomerMain.super.onBackPressed();
+                    finish();
                 }
             });
             dialog.setNegativeButton("TIDAK", new DialogInterface.OnClickListener() {

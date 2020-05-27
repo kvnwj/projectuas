@@ -79,7 +79,7 @@ public class CustCreditDetail extends Fragment {
         TextView txtNamaKaryawan = v.findViewById(R.id.txtNamaKaryawan);
         TextView txtStatus = v.findViewById(R.id.txtStatus);
 
-
+//        Penyesuaian dengan tampilan
         String hargaOTR = "Rp. " + thisCredit.get(TAG_harga_otr);
         String uangMuka = "Rp. " + thisCredit.get(TAG_uang_muka);
         String tenor = thisCredit.get(TAG_tenor) + " Bulan";

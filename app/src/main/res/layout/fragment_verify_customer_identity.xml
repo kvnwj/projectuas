@@ -18,103 +18,219 @@
         android:text="Verifikasi Identitas Customer"
         android:background="@color/colorPrimary"
         android:textColor="#ffffff"
-        android:gravity="center"
+        android:textAlignment="center"
         android:textStyle="bold"
         style="@style/CustomerListTitleStyle" />
 
-    <EditText
-        android:id="@+id/edtNamaDepan"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textSize="18sp"
-        android:hint="Nama Depan"
-        android:inputType="textPersonName" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/edtNamaBelakang"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textSize="18sp"
-        android:hint="Nama Belakang"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/edtNIK"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textSize="18sp"
-        android:hint="Nomor Induk Kependudukan"
-        android:inputType="number" />
-
-    <EditText
-        android:id="@+id/edtAlamat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textSize="18sp"
-        android:hint="Alamat"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/edtTempatLahir"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textSize="18sp"
-        android:hint="Tempat Lahir"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/txtTglLahir"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tanggal Lahir"
-        android:layout_marginLeft="4dp"
-        android:textSize="18sp"
-        android:paddingTop="4dp" />
-
-    <Spinner
-        android:id="@+id/spinnerJK"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:paddingTop="16dp" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp">
-
-        <Button
-            android:id="@+id/btnBack"
-            style="@style/generalButton"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="BACK"
-            android:background="@color/colorPrimary"
-            android:textColor="#ffffff"
-            android:gravity="center"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnVerify"
-            style="@style/generalButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="VERIFY"
-            android:background="@color/colorPrimary"
-            android:textColor="#ffffff"
-            android:gravity="center"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Data Pribadi Customer:"
+                android:textStyle="bold"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/txtNamaLengkapVerifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:text="Nama Lengkap: "
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/txtNIKverifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                android:text="Nomor Induk Kependudukan: "
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/txtAlamatVerifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                android:text="Alamat: "
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/txtTempatLahirVerifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:text="Tempat Lahir: "
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/txtTanggalLahirVerifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:text="Tanggal lahir: "
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/txtJKverifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:text="Jenis Kelamin: "
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/txtNoTelpVerifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:text="Nomor Telepon: "
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kredit yang diajukan: "
+                android:textStyle="bold"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/txtNamaProdukVerifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:text="Nama Produk: "
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/txtHargaOTRVerifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:text="Harga OTR: "
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/txtUangMukaVerifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:text="Uang Muka: "
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/txtTenorVerifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:text="Tenor: "
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/txtBungaVerifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:text="Bunga:  "
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/txtAngsuranVerifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:text="Angsuran Per Bulan: "
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/txtStatusVerifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:text="Status: "
+                android:layout_marginStart="16dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <Button
+                    android:id="@+id/btnBack"
+                    style="@style/generalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="BACK"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btnReject"
+                    style="@style/generalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="REJECT"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btnApprove"
+                    style="@style/generalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="APPROVE"
+                    android:background="@color/colorAccentLightTwo"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnReject"
+                    android:layout_marginTop="16dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,11 +16,23 @@ public class EmpCustomerList extends Fragment implements MyCustomerListAdapter.O
 
     RecyclerView recyclerView;
 
+    //    Tag untuk tabel transaksi
+    private static final String DATA_TRANSAKSI = "dataTransaksi";
+    private static final String TAG_nama_produk = "nama_produk";
+    private static final String TAG_nama_depan_customer = "nama_depan_cust";
+    private static final String TAG_nama_belakang_customer = "nama_belakang_cust";
+    private static final String TAG_ID_transaksi = "ID_transaksi";
+    private static final String TAG_harga_otr = "harga_otr";
+    private static final String TAG_uang_muka = "uang_muka";
+    private static final String TAG_tenor = "tenor";
+    private static final String TAG_bunga = "bunga";
+    private static final String TAG_angsuran = "angsuran_per_bulan";
+
     public EmpCustomerList() {
         // Required empty public constructor
     }
 
-    ArrayList<ArrayList<String>> data;
+    ArrayList<HashMap<String, String>> data;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,19 +46,23 @@ public class EmpCustomerList extends Fragment implements MyCustomerListAdapter.O
 //        Ambil data dari Activity EmployeeMain
         EmployeeMain activity = (EmployeeMain) getActivity();
         assert null != activity;
-        data = activity.getCustomerList();
+        data = activity.getEmployeeMainData();
 
 //        Buat Adapter baru
-        MyCustomerListAdapter myAdapter = new MyCustomerListAdapter(getActivity().getApplicationContext(), data.get(0), data.get(1), this);
+        MyCustomerListAdapter myAdapter = new MyCustomerListAdapter(getActivity().getApplicationContext(), data, this);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
         return v;
     }
 
-    //    Code saat customer di klik
+    //    Code saat transaksi di klik
     @Override
     public void onCustomerClick(int position) {
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new VerifyCustomerIdentity()).addToBackStack(null).commit();
-        Toast.makeText(getContext(), "ID_transaksi yang di klik adalah: " + data.get(2).get(position), Toast.LENGTH_LONG).show();
+        Bundle bundle = new Bundle();
+        bundle.putInt("position", position);
+
+        VerifyCustomerIdentity verifyCustomerIdentity = new VerifyCustomerIdentity();
+        verifyCustomerIdentity.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, verifyCustomerIdentity).addToBackStack(null).commit();
     }
 }

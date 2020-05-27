@@ -20,7 +20,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp">
 
-
             <ImageView
                 android:layout_width="120dp"
                 android:layout_height="120dp"
@@ -37,113 +36,37 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/txtNamaRow"
+            android:id="@+id/txtNamaEmp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imgUser"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15sp"
             android:fontFamily="sans-serif-light"
-            android:text="Kevin"
+            android:text="Danzel"
             android:textColor="#ffffff"
             android:textStyle="bold"
             android:textSize="32sp" />
 
+        <TextView
+            android:id="@+id/txtNIKEmployee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtNamaEmp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif"
+            android:text="8252788174814"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/linlay1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rellay1"
-        android:orientation="horizontal">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:background="#ffaa00">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="2"
-                    android:textStyle="bold"
-                    android:textColor="#ffffff"
-                    android:textSize="25sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="Pekerjaan Berlangsung"
-                    android:textStyle="bold"
-                    android:textAllCaps="true"
-                    android:textColor="#ffffff"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:background="#ffaa00">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="20"
-                    android:textStyle="bold"
-                    android:textColor="#ffffff"
-                    android:textSize="25sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="Pekerjaan Selesai"
-                    android:textStyle="bold"
-                    android:textAllCaps="true"
-                    android:textColor="#ffffff"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-    </LinearLayout>
-
-
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/linlay1">
+        android:layout_below="@+id/rellay1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -164,14 +87,15 @@
                     android:layout_height="wrap_content"
                     android:text="Nama Lengkap"
                     android:textStyle="bold"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/txtNamaLengkapEmployee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="Kevin Widjaja"
+                    android:text="Danzel Sasputra"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -192,15 +116,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nomor Telepon"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/txtNoTelpEmployee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="08987654321"
+                    android:text="08123456789"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -222,10 +147,11 @@
                     android:layout_height="wrap_content"
                     android:text="Alamat"
                     android:textStyle="bold"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/txtAlamatEmployee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -251,21 +177,17 @@
                     android:layout_height="wrap_content"
                     android:text="Tempat Lahir"
                     android:textStyle="bold"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/txtTempatLahirEmployee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="Jakarta"
+                    android:text="Bogor"
                     android:textColor="#000000"
                     android:textSize="18sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="15dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -278,22 +200,18 @@
                         android:layout_height="wrap_content"
                         android:text="Tanggal Lahir"
                         android:textStyle="bold"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="13sp" />
 
                     <TextView
+                        android:id="@+id/txtTglLahirEmployee"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="11/5/2000"
+                        android:text="13/4/2000"
                         android:textColor="#000000"
-                        android:textSize="18sp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="15dp" />
-
+                        android:textSize="18sp"
+                        android:paddingBottom="64dp" />
 
                 </LinearLayout>
 
@@ -301,6 +219,6 @@
 
         </LinearLayout>
 
-    </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

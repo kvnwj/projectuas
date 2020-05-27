@@ -7,20 +7,31 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MyCustomerListAdapter extends RecyclerView.Adapter<MyCustomerListAdapter.MyViewHolder> {
+    //    Tag untuk tabel transaksi
+    private static final String DATA_TRANSAKSI = "dataTransaksi";
+    private static final String TAG_nama_produk = "nama_produk";
+    private static final String TAG_nama_depan_customer = "nama_depan_cust";
+    private static final String TAG_nama_belakang_customer = "nama_belakang_cust";
+    private static final String TAG_ID_transaksi = "ID_transaksi";
+    private static final String TAG_harga_otr = "harga_otr";
+    private static final String TAG_uang_muka = "uang_muka";
+    private static final String TAG_tenor = "tenor";
+    private static final String TAG_bunga = "bunga";
+    private static final String TAG_angsuran = "angsuran_per_bulan";
 
-    ArrayList<String> nama, deskripsi;
+    ArrayList<HashMap<String, String>> mTransactionData;
     Context context;
     private OnCustomerListener mOnCustomerListener;
 
     //    Class Constructor
-    public MyCustomerListAdapter(Context ct, @NonNull ArrayList<String> s1, @NonNull ArrayList<String> s2, OnCustomerListener onCustomerListener) {
-        this.nama = s1;
-        this.deskripsi = s2;
+    public MyCustomerListAdapter(Context ct, @NonNull ArrayList<HashMap<String, String>> mTransactionData, OnCustomerListener onCustomerListener) {
+        this.mTransactionData = mTransactionData;
         this.context = ct;
         this.mOnCustomerListener = onCustomerListener;
     }
@@ -35,13 +46,14 @@ public class MyCustomerListAdapter extends RecyclerView.Adapter<MyCustomerListAd
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.nama.setText(nama.get(position));
-        holder.deskripsi.setText(deskripsi.get(position));
+        String namaLengkap = mTransactionData.get(position).get(TAG_nama_depan_customer) + " " + mTransactionData.get(position).get(TAG_nama_belakang_customer);
+        holder.nama.setText(namaLengkap);
+        holder.deskripsi.setText(mTransactionData.get(position).get(TAG_nama_produk));
     }
 
     @Override
     public int getItemCount() {
-        return nama.size();
+        return mTransactionData.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
