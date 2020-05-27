@@ -54,7 +54,7 @@
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:text="LOGIN"
             android:textColor="#ffffff"
             android:gravity="center"
@@ -81,6 +81,15 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             style="@style/generalButton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:textAlignment="center"
+            android:text="Cipta S (00000027223), Danzel S (00000027023), David A (00000026995), Kevin M (00000026861), Kevin Widjaja (00000027219)" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
