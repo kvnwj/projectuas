@@ -30,121 +30,132 @@
         android:textStyle="bold"
         style="@style/CustomerListSubTitleStyle" />
 
-    <EditText
-        android:id="@+id/edtNamaDepanBaru"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textSize="18sp"
-        android:hint="Nama Depan"
-        android:inputType="textPersonName" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/edtNamaBelakangBaru"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textSize="18sp"
-        android:hint="Nama Belakang"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/edtNIKBaru"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textSize="18sp"
-        android:hint="Nomor Induk Kependudukan"
-        android:inputType="number" />
-
-    <EditText
-        android:id="@+id/edtAlamatBaru"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textSize="18sp"
-        android:hint="Alamat"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/edtNoTelpBaru"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textSize="18sp"
-        android:hint="Nomor Telepon"
-        android:inputType="phone" />
-
-    <EditText
-        android:id="@+id/edtTempatLahirBaru"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textSize="18sp"
-        android:hint="Tempat Lahir"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/txtTglLahirBaru"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tanggal Lahir"
-        android:layout_marginLeft="4dp"
-        android:textSize="18sp"
-        android:paddingTop="4dp" />
-
-    <Spinner
-        android:id="@+id/spinnerJKBaru"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:paddingTop="16dp" />
-
-    <EditText
-        android:id="@+id/edtUsernameBaru"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textSize="18sp"
-        android:hint="Username Anda"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/edtPasswordBaru"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textSize="18sp"
-        android:hint="Password"
-        android:inputType="textPassword" />
-
-    <EditText
-        android:id="@+id/edtPasswordBaru2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textSize="18sp"
-        android:hint="Konfirmasi Password"
-        android:inputType="textPassword" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp">
-
-        <Button
-            android:id="@+id/btnCreateAccBaru"
-            style="@style/generalButton"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:text="CREATE ACCOUNT"
-            android:textColor="#ffffff"
-            android:background="@color/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/edtNamaDepanBaru"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:hint="Nama Depan"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtNamaBelakangBaru"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:hint="Nama Belakang"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtNIKBaru"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:hint="Nomor Induk Kependudukan"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/edtAlamatBaru"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:hint="Alamat"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtNoTelpBaru"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:hint="Nomor Telepon"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/edtTempatLahirBaru"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:hint="Tempat Lahir"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/txtTglLahirBaru"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tanggal Lahir"
+                android:layout_marginLeft="4dp"
+                android:textSize="18sp"
+                android:paddingTop="4dp" />
+
+            <Spinner
+                android:id="@+id/spinnerJKBaru"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:paddingTop="16dp" />
+
+            <EditText
+                android:id="@+id/edtUsernameBaru"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:hint="Username Anda"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtPasswordBaru"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:hint="Password"
+                android:inputType="textPassword" />
+
+            <EditText
+                android:id="@+id/edtPasswordBaru2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="18sp"
+                android:hint="Konfirmasi Password"
+                android:inputType="textPassword" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp">
+
+                <Button
+                    android:id="@+id/btnCreateAccBaru"
+                    style="@style/generalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:text="CREATE ACCOUNT"
+                    android:textColor="#ffffff"
+                    android:background="@color/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
