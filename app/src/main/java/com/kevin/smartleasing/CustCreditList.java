@@ -46,7 +46,7 @@ public class CustCreditList extends Fragment implements MyCreditListAdapter.OnCr
         return v;
     }
 
-    //    Code saat customer di klik
+    //    Code saat credit di klik
     @Override
     public void onCreditClick(int position) {
         Bundle bundle = new Bundle();
