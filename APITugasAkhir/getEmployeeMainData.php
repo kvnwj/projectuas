@@ -11,7 +11,7 @@ if (isset($_POST['ID_employee'])) {
     // Membuat Query SQL untuk mengambil data profil Employee
     $sqlProfil = "SELECT nama_depan, nama_belakang, jenis_kelamin, nik, alamat, tempat_lahir, tanggal_lahir, no_telp FROM employee WHERE ID_employee = :id";
 
-    // Membuat Query SQL untuk mengambil data transaksi customer berstatus WAIT
+    // Membuat Query SQL untuk mengambil data transaksi customer
     $sqlTransaksi = "SELECT c.nama_depan as nama_depan_cust, c.nama_belakang as nama_belakang_cust, c.nik, c.alamat, c.tempat_lahir, c.tanggal_lahir, c.no_telp, c.jenis_kelamin, p.nama_produk, p.harga_otr, t.uang_muka, t.tenor, p.bunga, t.angsuran_per_bulan, t.status, t.ID_transaksi
     FROM customer c, produk p, transaksi t
     WHERE c.ID_customer = t.ID_customer AND p.ID_produk = t.ID_produk";

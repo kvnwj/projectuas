@@ -250,7 +250,7 @@ public class VerifyCustomerIdentity extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e("VOLLEY", error.toString());
-//                Toast.makeText(getContext(), "Silahkan Cek Koneksi Internet Anda", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Silahkan Cek Koneksi Internet Anda", Toast.LENGTH_LONG).show();
             }
         }) {
             @Override
